@@ -18,5 +18,5 @@ const number = prompt('Masukan nomor : ')
   <p>{{ (parseInt(number) + 20)  }}</p>
   <br>
   <p>{{ number ? 'TRUE : 1' : 'FALSE : 0' }}</p>
-  <br>
+  <br> 
 </template>
