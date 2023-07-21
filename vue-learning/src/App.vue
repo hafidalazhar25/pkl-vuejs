@@ -1,19 +1,37 @@
 <template>
   <div id="tugas">
-    <h2>Formulir Kontak</h2>
+    <h2>Formulir</h2>
     <form @submit.prevent="submitForm">
       <label for="nama">Nama : </label>
-      <input class="{'is-invalid':is}" type="text" id="nama" v-model="kontak.nama" required/>
-      <div v-if="isInvalidNama" class="error-message">Nama Harus Di Isi</div>
-      <label for="email">Email :</label>
-      <input type="email" id="email" v-model="kontak.email" required />
-      <div v-if="isInvalidEmail" class="error-message">Email Harus Di Isi</div>
-
+      <input class="{'is-invalid':is}" type="text" id="nama" v-model="info.nama" required/>
+      <br>
+      <label for="kelas">Kelas :</label>
+      <input type="kelas" id="kelas" v-model="info.kelas" required />
+      <br>
+      <label for="alamat">Alamat :</label>
+      <textarea name="alamat" id="alamat" cols="30" rows="3" v-model="info.alamat"></textarea>
+      <br>
+      <label for="mtk">Nilai MTK</label>
+      <input type="number" id="mtk" v-model="info.mtk" required>
+      <br>
+      <label for="ipa">Nilai IPA</label>
+      <input type="number" id="ipa" v-model="info.ipa" required>
+      <br>
+      <label for="mtk">Nilai B.Indo</label>
+      <input type="number" id="indo" v-model="info.indo" required>
+      <br>
       <button type="submit">Kirim</button>
     </form>
+    <br>
     <div v-if="showResult">
-      nama : {{ name }} <br>
-      email : {{ email }}
+      Nama : {{ nama }} <br>
+      Kelas : {{ kelas }} <br>
+      Alamat : {{ alamat }} <br>
+      Nilai MTK : {{ mtk }} <br>
+      Nilai IPA : {{ ipa }} <br>
+      Nilai B.Indo : {{ indo }} <br>
+      Total : {{ mtk + ipa + indo }} <br>
+      Status :  {{ (mtk + ipa + indo) >= 260 ? 'Lulus' : 'Gagal' }}
     </div>
 </div>  
 </template>
@@ -24,28 +42,32 @@ import { ref } from 'vue';
 export default {
   data() {
     return {
-      kontak: {
+      info: {
         nama: ref(''),
-        email: ref(''),
+        kelas: ref(''),
+        alamat: ref(''),
+        mtk: ref(),
+        ipa: ref(),
+        indo: ref(),
       },
       showResult: ref(false),
-      name: ref(''),
-      email: ref(''),
+      nama: ref(''),
+      kelas: ref(''),
+      alamat: ref(''),
+      mtk: ref(),
+      ipa: ref(),
+      indo: ref()
     };
 
   },
-  computed: {
-    isInvalidNama() {
-      return this.kontak.nama.length === 0;
-    },
-    isInvalidEmail() {
-      return this.kontak.email.length === 0;
-    },
-  },
   methods: {
     submitForm() {
-      this.name = this.kontak.nama;
-      this.email = this.kontak.email;
+      this.nama = this.info.nama;
+      this.kelas = this.info.kelas;
+      this.alamat = this.info.alamat;
+      this.mtk = this.info.mtk;
+      this.ipa = this.info.ipa;
+      this.indo = this.info.indo;
       this.showResult = true;
     },
   },
