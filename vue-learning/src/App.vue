@@ -1,22 +1,49 @@
-<script setup>
-import { ref } from 'vue';
-const count = ref(0);
-const rawHtml = '<h1>Hallo</h1>';
-const link = "https://www.google.com"
-const number = prompt('Masukan nomor : ')
+<template>
+  <div id="tugas">
+    <h2>Formulir Kontak</h2>
+    <form @submit.prevent="submitForm">
+      <label for="nama">Nama : </label>
+      <input type="text" id="nama" v-model="kontak.nama" required />
+      <br>
+      <label for="email">Email :</label>
+      <input type="email" id="email" v-model="kontak.email" required />
 
+      <button type="submit">Kirim</button>
+    </form>
+    <div v-if="showResult">
+      nama : {{ name }} <br>
+      email : {{ email }}
+    </div>
+</div>  
+</template>
+
+<script>
+import { ref } from 'vue';
+
+export default {
+  data() {
+    return {
+      kontak: {
+        nama: '',
+        email: '',
+      },
+      showResult: ref(false),
+      name: ref(''),
+      email: ref(''),
+    };
+  },
+  methods: {
+    submitForm() {
+      this.name = this.kontak.nama;
+      this.email = this.kontak.email;
+      this.showResult = true;
+    },
+  },
+};
 </script>
 
-
-<template>
-  <h1>Hallo</h1>
-  <br>
-  <p>Menggunakan Raw HTML<span v-html="rawHtml"></span></p> <!-- Menggunakan HTML yang ada dalam variabel -->
-  <br>
-  <a :href="link" class="btn btn-light">Google</a>
-  <br>
-  <p>{{ (parseInt(number) + 20)  }}</p>
-  <br>
-  <p>{{ number ? 'TRUE : 1' : 'FALSE : 0' }}</p>
-  <br> 
-</template>
+<style>
+h1 {
+  color: blue;
+}
+</style>

@@ -1,0 +1,41 @@
+<script setup>
+import { ref } from 'vue';
+
+const count = ref(0);
+const rawHtml = '<h1>Hallo</h1>';
+const link = 'https://www.google.com';
+let number = 1;
+const dataSiswa = [
+  { nama: 'Udin', kelas: 'XI RPL 2', umur: 15, lokasi: 'Bandung' },
+  { nama: 'Kakang', kelas: 'XI TBSM 2', umur: 14, lokasi: 'Garut' },
+  { nama: 'Rani', kelas: 'X RPL 2', umur: 13, lokasi: 'Cimahi' },
+  { nama: 'Ujang', kelas: 'X TBSM 2', umur: 16, lokasi: 'Ciamis' },
+  { nama: 'Juan', kelas: ' XI RPL 4', umur: 17, lokasi: 'Bogor' },
+];
+const dataJudul = ['No.','Nama', 'Kelas', 'Umur', 'Lokasi']
+</script>
+
+<template>
+  <h1>Hallo</h1>
+  <p>Menggunakan Raw HTML<span v-html="rawHtml"></span></p>
+  <!-- Menggunakan HTML yang ada dalam variabel -->
+  <a :href="link" class="btn btn-light">Google</a>
+  <p>{{ parseInt(number) + 20 }}</p>
+  <p>{{ number ? 'TRUE : 1' : 'FALSE : 0' }}</p>
+
+  <div class="latihan-table">
+    <h2>Latihan Table</h2>
+    <table border="1">
+      <tr>
+        <th v-for="judul in dataJudul">{{ judul }}</th>
+      </tr>
+      <tr v-for="siswa in dataSiswa">
+        <td>{{ number++ }}</td>
+        <td>{{ siswa.nama }}</td>
+        <td>{{ siswa.kelas }}</td>
+        <td>{{ siswa.umur }}</td>
+        <td>{{ siswa.lokasi }}</td>
+      </tr>
+    </table>
+  </div>
+</template>
