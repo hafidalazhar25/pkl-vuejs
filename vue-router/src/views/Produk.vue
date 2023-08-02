@@ -1,5 +1,5 @@
 <template>
-  <h1>Produk</h1>
+  <h1 class="text-2xl font-bold">Produk</h1>
   <div class="flex-container">
     <div v-for="produk in state" :key="produk.id" class="card">
     <router-link class="container" :to="{ name: 'Detail', params: {id_produk: produk.id}}">
@@ -32,6 +32,7 @@ export default {
 <style scoped>
 .flex-container {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .card {
