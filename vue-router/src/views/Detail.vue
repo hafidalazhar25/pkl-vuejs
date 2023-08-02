@@ -1,6 +1,9 @@
 <template>
   <div v-if="detail == undefined">
-    <h1>Not Found</h1>
+    <div class="flex items-center justify-center h-screen">
+    <h1 class="text-6xl font-bold">404</h1>
+    <p class="text-lg ml-5">Halaman Yang Kamu Cari Tidak Ditemukan</p>
+  </div>
   </div>
   <div v-else>
     <h1 class="text-2xl font-bold">Detail</h1>

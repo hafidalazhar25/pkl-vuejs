@@ -1,5 +1,8 @@
 <template>
-    <h1 class="text-2xl font-bold">404</h1>
+  <div class="flex items-center justify-center h-screen">
+    <h1 class="text-6xl font-bold">404</h1>
+    <p class="text-lg ml-5">Halaman Yang Kamu Cari Tidak Ditemukan</p>
+  </div>
 </template>
 
 <script>
