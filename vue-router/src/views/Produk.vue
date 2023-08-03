@@ -2,8 +2,9 @@
   <h1 class="text-2xl font-bold">Produk</h1>
   <div class="flex-container">
     <div v-for="produk in state" :key="produk.id" class="card">
+      <img :src="getImgSrc(produk.img)" alt="">
     <router-link class="container" :to="{ name: 'Detail', params: {id_produk: produk.id}}">
-      <h4>{{ produk.nama }}</h4>
+      <h4 class="text-center">{{ produk.nama }}</h4>
     </router-link>
     </div>
   </div>
@@ -18,12 +19,17 @@ export default {
   setup(props, context) {
     const state = reactive(produk["produk"])
 
+    const getImgSrc = (imgFileName) => {
+      return '../src/assets/img/' + imgFileName + '';
+    }
+
     onMounted(() => {
       context.emit('id-menu', 4);
     });
 
     return {
-      state
+      state,
+      getImgSrc
     }
   },
 };

@@ -6,7 +6,9 @@ import Produk from '@/views/Produk.vue';
 import Detail from '@/views/Detail.vue';
 import Kategori from '@/views/Kategori.vue';
 import KategoriProduk from '@/views/KategoriProduk.vue';
-import NotFound from '@/views/NotFound.vue'
+import Login from '@/views/Login.vue';
+import Register from '@/views/Register.vue';
+import NotFound from '@/views/NotFound.vue';
 
 const routes = [
   {
@@ -28,6 +30,14 @@ const routes = [
     path: '/produk',
     name: 'Produk',
     component: Produk,
+    beforeEnter: (to, from, next) => {
+      const loggedInUser = true
+      if (loggedInUser) {
+        next();
+      } else {
+        next('/login'); // Redirect ke halaman login jika pengguna belum login 
+      }
+    },
   },
   {
     path: '/kategori',
@@ -38,7 +48,7 @@ const routes = [
     path: '/kategori-produk/:kategori_id',
     name: 'KategoriProduk',
     component: KategoriProduk,
-    props: true
+    props: true,
   },
   {
     path: '/detail/:id_produk',
@@ -54,6 +64,17 @@ const routes = [
   {
     path: '/kategori-produk/:pathMatch(.*)*',
     component: NotFound,
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login,
+    props: true,
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: Register,
   },
 ];
 

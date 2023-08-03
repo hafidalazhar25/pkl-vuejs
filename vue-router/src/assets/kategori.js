@@ -25,6 +25,10 @@
         'nama': 'Olahraga',
         'img' : 'olahraga.jpeg'
       },
+      {
+        'id': 6,
+        'nama': 'Perempuan',
+      },
     ],
   };
   

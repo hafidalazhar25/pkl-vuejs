@@ -7,14 +7,14 @@
         class="container"
         :to="{ name: 'KategoriProduk', params: { kategori_id: kategori.id } }"
       >
-        <h4>{{ kategori.nama }}</h4>
+        <h4 class="text-center">{{ kategori.nama }}</h4>
       </router-link>
     </div>
   </div>
 </template>
 
 <script>
-import { onMounted, reactive } from 'vue';
+  import { onMounted, reactive } from 'vue';
 import { kategori } from '@/assets/kategori';
 import { produk } from '@/assets/produk';
 
