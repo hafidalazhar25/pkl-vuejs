@@ -9,6 +9,8 @@ import KategoriProduk from '@/views/KategoriProduk.vue';
 import Login from '@/views/Login.vue';
 import Register from '@/views/Register.vue';
 import NotFound from '@/views/NotFound.vue';
+import Counter from '@/views/Counter.vue';
+import Todo from '@/views/Todo.vue';
 
 const routes = [
   {
@@ -31,11 +33,11 @@ const routes = [
     name: 'Produk',
     component: Produk,
     beforeEnter: (to, from, next) => {
-      const loggedInUser = true
+      const loggedInUser = true;
       if (loggedInUser) {
         next();
       } else {
-        next('/login'); // Redirect ke halaman login jika pengguna belum login 
+        next('/login'); // Redirect ke halaman login jika pengguna belum login
       }
     },
   },
@@ -75,6 +77,16 @@ const routes = [
     path: '/register',
     name: 'Register',
     component: Register,
+  },
+  {
+    path: '/counter',
+    name: 'Counter',
+    component: Counter,
+  },
+  {
+    path: '/todo',
+    name: 'Todo',
+    component: Todo,
   },
 ];
 
