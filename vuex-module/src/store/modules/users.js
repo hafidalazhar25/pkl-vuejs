@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 const users = {
   namespaced: true,
@@ -6,15 +6,15 @@ const users = {
     userData: [],
   },
   getters: {
-    getUsers: (state) => state.getUsers,
+    getUsers: (state) => state.userData,
   },
   actions: {
     async fetchUsers({ commit }) {
       try {
         const data = await axios.get(
-          'https://jsonplaceholder.typicode.com/users'
+          "https://jsonplaceholder.typicode.com/users"
         );
-        commit('SET_USERS', data.data);
+        commit("SET_USERS", data.data);
       } catch (error) {
         alert(error);
         console.log(error);
