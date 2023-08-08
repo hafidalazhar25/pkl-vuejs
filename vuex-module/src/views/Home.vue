@@ -16,16 +16,17 @@
               <lokasi-bencana @selectedBantuan="selectedBantuan" />
             </div>
             <div class="mb-4">
-              <label for="">Jumlah Donasi (Rp)</label>
+              <label for="" class="ml-5">Jumlah Donasi (Rp) : </label>
               <input
                 v-model="jumlah"
                 type="number"
-                class="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded"
+                class="ml-2"
               />
             </div>
             <div class="mb-4">
               <button
-                class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded no-underline bg-blue-600 text-white hover:bg-blue-600 py-1 px-2 leading-tight text-xs"
+                class="inline-block align-middle text-center select-none border whitespace-no-wrap  no-underline bg-blue-600 text-white hover:bg-blue-600 py-1 px-2 leading-tight  ml-4 w-20 h-10 text-xs font-bold rounded-lg"
+                :class="isLoading ? 'cursor-progress' : 'cursor-pointer'"
                 @click="submitDonasi"
                 :disabled="isLoading"
               >
@@ -63,7 +64,7 @@ export default {
     return {
       donatur: '',
       clients: '',
-      jumlah: 0,
+      jumlah: 0
     };
   },
   computed: {

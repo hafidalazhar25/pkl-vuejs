@@ -1,16 +1,22 @@
 <template>
-  <div class="table-responsive">
-    <table class="table table-hover table-bordered">
+  <div class="block w-full overflow-auto scrolling-touch">
+    <table
+      class="w-full max-w-full mb-4 bg-transparent table-hover table-bordered"
+    >
       <thead>
-        <tr>
+        <tr class="text-lg mb-4">
           <th>#</th>
           <th>Donatur</th>
           <th>Jenis Bantuan</th>
           <th>Jumlah</th>
         </tr>
       </thead>
-      <tbody>
-        <tr v-for="(row, index) in listTransaksi" :key="index">
+      <tbody class="mb-5">
+        <tr
+          v-for="(row, index) in listTransaksi"
+          :key="index"
+          class="text-center"
+        >
           <td>{{ index + 1 }}</td>
           <td>{{ row.donatur }}</td>
           <td>{{ row.bantuan }}</td>
@@ -26,7 +32,7 @@ import { mapState } from 'vuex';
 export default {
   computed: {
     ...mapState('transaksi', {
-      listTransaksi: state => state.listTransaksi,
+      listTransaksi: (state) => state.listTransaksi,
     }),
   },
 };

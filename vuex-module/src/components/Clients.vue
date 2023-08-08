@@ -1,12 +1,12 @@
 <template>
   <div>
     <div class="form-group">
-      <label for="">Jenis Bantuan</label>
+      <label for="" class="mr-2">Jenis Bantuan : </label>
       <select
         @change="$emit('selectedBantuan', $event.target.value)"
         class="form-control"
       >
-        <option value="">Pilih Bantuan</option>
+        <option value="">-- Pilih Bantuan --</option>
         <option v-for="row in listBantuan" :key="row.name" :value="row.name">
           {{ row.name }}
         </option>
