@@ -5,7 +5,7 @@
         <div class="md:flex md:justify-between">
           <div class="mb-6 md:mb-0">
               <a href="https://flowbite.com/" class="flex items-center">
-                  <span class="self-center text-2xl text-white font-semibold whitespace-nowrap dark:text-white">PT. Hanoman</span>
+                  <span class="logo-footer self-center text-2xl text-white font-semibold whitespace-nowrap dark:text-white">PT. Hanoman</span>
               </a>
           </div>
           <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
@@ -89,3 +89,11 @@
 <script setup>
 
 </script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
+
+.logo-footer {
+  font-family: 'Josefin Sans', sans-serif;
+}
+</style>

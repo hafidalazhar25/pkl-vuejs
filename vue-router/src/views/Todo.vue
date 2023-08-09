@@ -24,13 +24,15 @@ export default {
         const totalNotes = computed(() => store.getters.totalNotes);
         const title = ref("");
         function save() {
+            // Memanggil action 'saveNote' dari store
             store.dispatch("saveNote", title.value);
             title.value = "";
         }
         function deleteNote(index) {
+            // Memanggil action 'deleteNote' dari store
             store.dispatch("deleteNote", index);
         }
-
+        // Memasukan data dari store kedalam variable notes
         const notes = computed(() => store.state.notes);
         return {
             notes,

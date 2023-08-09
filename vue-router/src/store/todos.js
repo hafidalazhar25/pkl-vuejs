@@ -1,16 +1,19 @@
-import { createStore } from "vuex";
+import { createStore } from 'vuex';
 
 const todosStore = createStore({
   state: {
-    title: "Vuex Store",
+    // State Tempat penyimpanan sentral data
+    title: 'Vuex Store',
     notes: [],
   },
   getters: {
+    // Getters adalah fungsi yang digunakan untuk mengambil (get) data dari state
     totalNotes(state) {
       return state.notes.length;
     },
   },
   mutations: {
+    //  Mutations adalah fungsi-fungsi yang digunakan untuk mengubah (mutate) state dalam Vuex.
     SAVE_NOTE(state, title) {
       state.notes.push(title);
     },
@@ -19,11 +22,12 @@ const todosStore = createStore({
     },
   },
   actions: {
+
     saveNote({ commit }, title) {
-      commit("SAVE_NOTE", title);
+      commit('SAVE_NOTE', title);
     },
     deleteNote({ commit }, index) {
-      commit("DELETE_NOTE", index);
+      commit('DELETE_NOTE', index);
     },
   },
 });

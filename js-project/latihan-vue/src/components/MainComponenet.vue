@@ -55,7 +55,7 @@
           <div class="flex flex-row mx-auto place-content-center">
             <div class="basis-1/2">
               <img
-                src="https://o.remove.bg/downloads/35abebb3-7e00-4b97-8c80-bad5e046a7a0/istockphoto-1214970249-170667a-removebg-preview.png"
+                src="https://media.istockphoto.com/id/1214970249/id/vektor/logo-modern-letters-tp-atau-pt-ilustrasi-vektor.jpg?s=170667a&w=0&k=20&c=FnLeITbMh1DfBdLlvqFdh6Nb84_Q629rbuv6SucV90Q=  "
                 width="300"
                 alt=""
               />
