@@ -6,7 +6,7 @@
         class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
         v-for="categories in getCategory"
       >
-        <a :href="categories">
+        <a :href="'/category/' + categories">
           <img
             class="rounded-t-lg object-contain h-48 w-96"
             :src="'src/assets/img/' + categories + '.jpg'"

@@ -6,11 +6,13 @@
 </template>
 
 <script>
+import  store  from "./store/index";
+console.log(store.getters['auth/isAuthenticated']);
 import Navbar from '@/components/Navbar.vue';
 
 export default {
   components: {
     Navbar
-  },
+  }
 };
 </script>

@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 const productStore = {
   namespaced: true,
   state: {
@@ -15,6 +16,15 @@ const productStore = {
       const product = state.dataProducts.find((p) => p.id == productId);
       console.log('Product:', product);
       return product;
+    },
+
+    getProductByCategory: (state) => (productCategory) => {
+      const produk = state.dataProducts.filter(
+        (p) => p.category == productCategory
+      );
+
+
+      return produk;
     },
   },
   actions: {
@@ -40,6 +50,18 @@ const productStore = {
         console.log(error);
       }
     },
+    async fetchFilterCategory({commit}, productCategory) {
+      try {
+        const response = await axios.get(
+          `https://fakestoreapi.com/products/category/${productCategory}`
+        )
+        console.log(response.data);
+        commit('SET_FILTER_PRODUCT', response.data)
+      } catch (error) {
+        alert(error)
+        console.error(error);
+      }
+    }
   },
   mutations: {
     SET_PRODUCTS(state, products) {
@@ -48,6 +70,9 @@ const productStore = {
     SET_SINGLE_PRODUCTS(state, product) {
       state.singleProduct = product;
     },
+    SET_FILTER_PRODUCT(state, product) {
+      state.getProductByCategory = product
+    }
   },
 };
 

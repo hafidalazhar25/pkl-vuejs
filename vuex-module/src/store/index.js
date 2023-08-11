@@ -6,6 +6,10 @@ import users from './modules/users';
 import stasiunKereta from './modules/kereta';
 import productStore from './modules/productStore';
 import categoryStore from './modules/category';
+import auth from './modules/auth';
+import notification from './modules/notification';
+
+
 
 const store = createStore({
   state: {
@@ -18,7 +22,9 @@ const store = createStore({
     users,
     stasiunKereta,
     productStore,
-    categoryStore
+    categoryStore,
+    auth,
+    notification
   },
 });
 

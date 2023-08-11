@@ -113,7 +113,7 @@ export default {
   },
   mounted() {
     const productId = this.$route.params.id;
-    console.log('Fetching single product with ID:', productId);
+    console.log('Fetchin  g single product with ID:', productId);
     this.fetchSingleProducts(productId);
   },
 };

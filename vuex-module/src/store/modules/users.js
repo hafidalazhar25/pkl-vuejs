@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 const users = {
   namespaced: true,
@@ -11,12 +11,24 @@ const users = {
   actions: {
     async fetchUsers({ commit }) {
       try {
-        const data = await axios.get(
-        "https://jsonplaceholder.typicode.com/users"
-        );
-        commit("SET_USERS", data.data);
+        const data = await axios.get('https://fakestoreapi.com/users?limit=5');
+        commit('SET_USERS', data.data);
       } catch (error) {
         alert(error);
+        console.log(error);
+      }
+    },
+
+    async createUser({ commit }, userData) {
+      try {
+        const response = await axios.post(
+          'https://fakestoreapi.com/users',
+          userData
+        );
+        commit('ADD_USER', response.data);
+        return response.data
+      } catch (error) {
+        alert(error)
         console.log(error);
       }
     },
@@ -25,6 +37,9 @@ const users = {
     SET_USERS(state, users) {
       state.userData = users;
     },
+    ADD_USER(state, user) {
+      state.userData.push = (user )
+    }
   },
 };
 
